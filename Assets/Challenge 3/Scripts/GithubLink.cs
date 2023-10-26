@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GithubLink : MonoBehaviour
 {
+    public string link;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,6 @@ public class GithubLink : MonoBehaviour
         
     }
     public void openLink() {
-        Application.OpenURL("https://github.com/WarpedNet/Unity2Challenge");
+        Application.OpenURL(link);
     }
 }
