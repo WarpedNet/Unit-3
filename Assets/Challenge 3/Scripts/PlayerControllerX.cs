@@ -35,8 +35,11 @@ public class PlayerControllerX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerRb.position.y > 12) {
-            isLowEnough = false;
+        if (playerRb.position.y > 16) {
+            // Disables the ability to jump
+            isLowEnough = false;                        
+            // Prevents the velocity of jumping from stacking up and sending you to the moon
+            playerRb.velocity = new Vector3(0, -(1+gravityModifier), 0);  // -(1+gravityModifier) to prevent a "floating" effect when hitting the vertical limit since the velocity is fixed
         }
         else {
             isLowEnough = true;
@@ -45,8 +48,6 @@ public class PlayerControllerX : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !gameOver && isLowEnough)
         {
             playerRb.AddForce(Vector3.up * floatForce);
-
-
         }
     }
 
